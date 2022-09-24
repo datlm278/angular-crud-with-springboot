@@ -1,0 +1,31 @@
+<div class="navbar">
+  <div class="top">
+    <mat-icon>notifications_none</mat-icon>
+  </div>
+  <div class="user">
+    <img src="./assets/image/images.jpg" alt="">
+    <h4 class="name">Admin</h4>
+    <p class="email">admin@gmail.com</p>
+  </div>
+  <div class="menu">
+    <div class="menu-head">
+      <span>Home</span>
+    </div>
+    <div class="menu-item">
+      <button mat-button class="menu-button" [routerLink]="['/admin/dashboard']">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/admin/employee']">
+        <mat-icon>perm_identity</mat-icon>
+        <span>Employee</span>
+      </button>
+      <button mat-button class="menu-button" [routerLink]="['/admin/organization']">
+        <mat-icon>location_city</mat-icon>
+        <span>Organization</span>
+      </button>
+      <button mat-button class="menu-button"></button>
+      <button mat-button class="menu-button"></button>
+    </div>
+  </div>
+</div>

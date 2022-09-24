@@ -9,6 +9,12 @@ import { OrganizationComponent } from './admin/organization/organization.compone
 import { LoginComponent } from './admin/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -18,11 +24,17 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     OrganizationComponent,
     LoginComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
