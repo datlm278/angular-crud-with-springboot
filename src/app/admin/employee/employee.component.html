@@ -1,1 +1,42 @@
-<p>employee works!</p>
+<h1 class="mat-title">Employee Management</h1>
+<div class="content">
+  <div class="content-header">
+    <button mat-stroked-button color="primary" class="mat-button" (click)="openDialog()">New Employee</button>
+  </div>
+  <div class="content-main">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Organization</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td>{{employee.organizationId}}</td>
+        <td>{{employee.status === 1 ? "Active" : "Inactive"}}</td>
+        <td>
+          <button mat-icon-button color="primary" class="mat-button" (click)="editEmployee(employee)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" class="mat-button" (click)="openDeleteDialog(employee.id)" style="margin-left: 10px">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

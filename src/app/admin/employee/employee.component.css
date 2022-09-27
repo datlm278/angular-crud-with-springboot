@@ -1,0 +1,26 @@
+.mat-title{
+  font-size: 35px;
+  margin-top: 20px;
+}
+
+.content-main{
+  margin-top: 20px;
+}
+
+.mat-button{
+  /*margin-top: 10px;*/
+}
+
+.mat-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 20px;
+  height: 30px;
+  flex-shrink: 0;
+  line-height: 20px;
+  border-radius: 50%;
+}
+.mat-icon-button .mat-icon {
+  line-height: 20px;
+  font-size: 20px;
+}
