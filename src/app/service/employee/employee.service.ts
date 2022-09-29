@@ -17,6 +17,10 @@ export class EmployeeService {
     return this.http.get<Employee[]>(`${this.host}/${this.rest}/employee/find-all`);
   }
 
+  public getEmployeeById(employeeId: Number): Observable<Employee> {
+    return this.http.get<Employee>(`${this.host}/${this.rest}/employee/find-by-id?id=${employeeId}`);
+  }
+
   public createNemEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(`${this.host}/${this.rest}/employee/create`, employee);
   }

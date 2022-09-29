@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {DialogComponent} from "../dialog/dialog.component";
+import {DialogComponent} from "./dialog/dialog.component";
 import {EmployeeService} from "../../service/employee/employee.service";
 import {Employee} from "../../model/employee";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ConfirmDialogComponent, ConfirmDialogModel} from "../confirm-dialog/confirm-dialog.component";
-
-// declare var window: any;
 
 @Component({
   selector: 'app-employee',
@@ -15,8 +13,9 @@ import {ConfirmDialogComponent, ConfirmDialogModel} from "../confirm-dialog/conf
 })
 export class EmployeeComponent implements OnInit {
 
-  public employees: Employee[] = [];
+  employees: Employee[] = [];
   private idDelete: number = 0;
+  employee!: Employee;
 
   constructor(public dialog: MatDialog, private employeeService: EmployeeService) { }
 
@@ -63,6 +62,19 @@ export class EmployeeComponent implements OnInit {
         (response) => {
           console.log(response);
           this.getEmployees();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message)
+        }
+      )
+  }
+
+  public getEmployeeById(id: number) {
+    this.employeeService.getEmployeeById(id)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.employee = response;
         },
         (error: HttpErrorResponse) => {
           alert(error.message)

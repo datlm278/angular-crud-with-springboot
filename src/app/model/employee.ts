@@ -6,4 +6,5 @@ export interface Employee{
   phoneNumber: string;
   status: number;
   organizationId: number;
+  organizationName: string;
 }

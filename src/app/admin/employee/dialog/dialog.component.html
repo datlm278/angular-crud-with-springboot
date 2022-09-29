@@ -1,0 +1,91 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<form novalidate (ngSubmit)="createEmployee(form)" #form="ngForm" class="row justify-content-md-center">
+  <div>
+    <div class="mb-3">
+      <label for="employeeName" class="form-label">Name</label>
+      <input type="text" class="form-control" id="employeeName"
+             #employeeName= "ngModel"
+             [(ngModel)]="employee.name"
+             name="name" required>
+      <div *ngIf="employeeName.invalid && (employeeName.dirty || employeeName.touched)">
+        <div *ngIf="employeeName.errors?.['required']">
+          <span class="is-invalid form-text">Name is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <input type="text" class="form-control" id="address"
+             #address= "ngModel"
+             [(ngModel)]="employee.address"
+             name="address" required>
+      <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <div *ngIf="address.errors?.['required']">
+          <span class="is-invalid form-text">Address is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" #email="ngModel"
+             [(ngModel)] = "employee.email" name="email"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">
+          <span class="is-invalid form-text">Email is required</span>
+        </div>
+        <div *ngIf="email.errors?.['pattern']">
+          <span class="is-invalid form-text">Email incorrect format</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone number</label>
+      <input type="email" class="form-control" id="phoneNumber" #phone="ngModel"
+             [(ngModel)] = "employee.phoneNumber" name="phoneNumber"
+             pattern="(84|0[3|5|7|8|9])+([0-9]{8})\b" required>
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+        <div *ngIf="phone.errors?.['required']">
+          <span class="is-invalid form-text">Phone is required</span>
+        </div>
+        <div *ngIf="phone.errors?.['pattern']">
+          <span class="is-invalid form-text">Phone incorrect format</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="organization" class="form-label">Organization</label>
+      <select id="organization" class="form-select"
+              [(ngModel)]="employee.organizationId" name="organization"
+              #organization="ngModel" required>
+        <option value="0">Nghệ An</option>
+        <option value="1">Hà Nội</option>
+        <option value="2">Hồ Chí Minh</option>
+        <option value="3">Sài Gòn</option>
+      </select>
+      <div *ngIf="organization.invalid && (organization.dirty || organization.touched)">
+        <div *ngIf="organization.errors?.['required']">
+          <span class="is-invalid form-text">Organization has not been selected</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select id="status" class="form-select"
+              [(ngModel)]="employee.status" name="status"
+              #status="ngModel" required>
+        <option value="" disabled selected>Choose status</option>
+        <option value="0">Inactive</option>
+        <option value="1">Active</option>
+      </select>
+      <div *ngIf="status.invalid && (status.dirty || status.touched)">
+        <div *ngIf="status.errors?.['required']">
+          <span class="is-invalid form-text">Organization has not been selected</span>
+        </div>
+      </div>
+    </div>
+    <button [disabled]="form.form.invalid" type="submit" mat-raised-button color="primary">{{action}}</button>
+    <button mat-dialog-close="" mat-raised-button color="warn" style="margin-left: 10px">Cancel</button>
+  </div>
+</form>

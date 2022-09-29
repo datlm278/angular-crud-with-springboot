@@ -19,14 +19,14 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {MatDialogModule} from "@angular/material/dialog";
-import {DialogComponent} from './admin/dialog/dialog.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {EmployeeService} from "./service/employee/employee.service";
 import {HttpClientModule} from "@angular/common/http";
-import { ConfirmDialogComponent } from './admin/confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogComponent} from './admin/confirm-dialog/confirm-dialog.component';
+import {DialogComponent} from "./admin/employee/dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { ConfirmDialogComponent } from './admin/confirm-dialog/confirm-dialog.co
     MatOptionModule,
     MatSelectModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
